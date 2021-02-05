@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Smarter Crowdsourcing: Coronavirus</title>
+
+  <link href="/images/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://use.typekit.net/kad3hcl.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/@directus/sdk-js@5.3.4/dist/directus-sdk.umd.min.js"></script>
+  <script src="https://kit.fontawesome.com/f713a12e61.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="homepage"  onwheel="scroll_dismiss()">
+
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+
+
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div class="menu-bars">
+      <div class="bar-wrap">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <a class="top_gl_logo" href="index.html"><img src="images/govlab-logo-white.png" alt="Smarter Crowdsourcing | Zika"></a>
+    <!-- Navigation links (hidden by default) -->
+    <div class='lang-select'>
+      <a style="padding: 15px 5px" href="es/thankyou.html">ES</a>
+      <p style="color:#ffffff" >|</p>
+      <a style="padding: 15px 5px" href="#" class="active">EN</a>
+      <p style="color:#ffffff" >|</p>
+      <a  style="padding: 15px 5px" href="pt/thankyou.html">PT</a>
+    </div>
+  </div>
+  <div id="myLinks">
+    <div class="menu-items">
+      <div class="menu-sub"><a href="index.html">Home</a></div>
+      <div class="menu-sub"><a href="about.html">About</a></div>
+      <div class="menu-sub"> <a href="index.html#topics">Topic</a></div>
+      <div class="menu-sub"><a href="team.html">Team</a></div>
+      <div class="menu-sub"><a href="recommendations.html">Explore Recommendations</a></div>
+      <div class="menu-sub"><a href="strategies.html">Explore Strategies</a></div>
+      <div class="menu-sub"><a href="resources.html">See all resources</a></div>
+      <!-- <div class="menu-sub"><a href="/recommendations.html">Recommendations</a></div>
+      <div class="menu-sub"><a href="/map.html">Explore the Map</a></div>
+      <div class="menu-sub"><a href="https://medium.com/smarter-crowdsourcing">Blog</a></div> -->
+    </div>
+  </div>
+  <div class="row top-section topic">
+    
+    <h1>Thank you!</h1>  
+    <p>Would you like to recommend another person?</p>
+  </div>
+  <body>
+
+  
+  <section class="page-section">
+    <div style="margin:1rem" class="main-buttons accent-color index-page-button">
+      <a href="recommend.html" target="_blank" class="button">Recommend another person</a>
+    </div>
+  </section>
+
+</body>
+  <footer class='footer-alt'>
+    <div class="row align-center">
+      <div class="medium-6 medium-centered columns">
+        <!-- <h4>In collaboration with</h4> -->
+        <!-- <h4>EN COLABORACIÓN CON</h4> -->
+        <h4>IN COLLABORATION WITH</h4>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="column">
+          <a class="footer_partner-logo" href="http://www.iadb.org/" target="_blank"><img
+              src="images/partners/idb-white.gif" alt="Inter-American Development Bank"></a>
+      </div>
+      <div class="column">
+          <a class="footer_partner-logo" href="http://www.thegovlab.org" target="_blank"><img
+              src="images/govlab-logo-white.png" alt="The GovLab"></a>
+        </div>
+    </div>
+  </footer>
+  <div class="copyright">
+    <div class="row">
+      <div class="column">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          <img class="copyright_cc-badge"
+            alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+        <p>&nbspThis work is licensed under a</p>&nbsp<a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a>.
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function scroll_dismiss() {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } 
+  }
+  }
+</script>
+<script src="js/fadein.js"></script>
+<script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+<script src="https://unpkg.com/vue-meta/dist/vue-meta.min.js"></script>
+<script src="js/coronavirus.js"></script>
+
+</html>
