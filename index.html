@@ -1,1 +1,197 @@
-<meta http-equiv="refresh" content="0; URL=recommend.html" />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Smarter Crowdsourcing: Education</title>
+
+  <link href="/images/favicon.ico" rel="shortcut icon">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://use.typekit.net/kad3hcl.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://unpkg.com/@directus/sdk-js@5.3.4/dist/directus-sdk.umd.min.js"></script>
+  <script src="https://kit.fontawesome.com/f713a12e61.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="homepage"  onwheel="scroll_dismiss()">
+
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+
+
+  <!-- Top Navigation Menu -->
+  <div class="topnav">
+    <div class="menu-bars">
+      <div class="bar-wrap">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+    <a class="top_logo" href="#home"><img src="images/experiential-learning-full-h-white.svg" alt="Smarter Crowdsourcing | New Measures"></a>
+    <!-- Navigation links (hidden by default) -->
+    <div class='lang-select'>
+
+    </div>
+  </div>
+  <div id="myLinks">
+    <div class="menu-items">
+      <div class="menu-sub" onclick="dismiss_menu()"><a href="#">Home</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href="about.html">About</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"> <a href="#topics">Topic</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href="team.html">Team</a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href=""></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href=""></a></div>
+      <div class="menu-sub" onclick="dismiss_menu()"><a href=""></a></div>
+    </div>
+  </div>
+  <div onclick="dismiss_menu()">
+  <div class="row top-section">
+    <div class="column large-12 site-logo__wrapper">
+      <a href="index.html"><img class="site-logo" src="images/experiential-learning-full.svg"
+          alt="Smarter Crowdsourcing | New Measures Logo"></a>
+    </div>
+  </div>
+  
+
+<div class="row align-center">
+    <section class="imagine-banner">
+    <h2>Imagine if community leaders, educators, families and students, employers, and those with diverse know-how could talk to one another to design new measures for educational success
+    </h2>
+    <h2>Imagine if the smartest and most innovative people could come together to uncover broad trends, opportunities for growth, and key challenges facing the field of non-academic measurement
+    </h2>
+    <h2>Imagine if those creative individuals could directly speak to the institutions with the power and responsibility for generating equitable outcomes for all students
+    </h2>
+    </section>
+
+  </div>
+  <div id="home-page">
+  <div class="main-buttons">
+    <a v-if="aboutData[0].catalog" :href="aboutData[0].catalog.data.full_url" class="button home-btn" target="_blank">DOWNLOAD THE PROBLEM CATALOG</a>
+  </div>
+
+
+    <section class="dark-section">
+      <br> <br>
+      <div class="row" v-html="aboutData[0].short_summary">
+
+
+      </div>
+    </section>
+
+    <section>
+      <div class="main-buttons accent-color index-page-button">
+        <a href="participate.html" class="button ">Participate</a>
+        <!-- <a href="topics.html" class="button">Topics</a> -->
+      </div>
+    </section>
+
+
+
+
+    <section style="margin-top: -50px; z-index:-10" id="topics">
+      <div class="topic-row">
+
+        <div v-for="topic in topicData" class="topic-column"
+          :style="{ backgroundImage: 'url(' + topic.image.data.full_url+ ')' }">
+          <div class="topic-wrap">
+            <h1>{{topic.topic_title}}</h1>
+            <p>{{topic.short_description}}</p>
+            <p v-if="topic.slug"><a :href="'topics/' + topic.slug" class="button more-info">More Information</a></p>
+
+            <div class="topic_date">
+              <h6>CONFERENCE ON &nbsp&nbsp</h6>
+
+              <p class="topic_month">{{topic.conference_dates}}</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- <div class="divider" id="about">
+
+      <h1>About The Project</h1>
+    </div>
+    <section class="dark-section more-info">
+      <div class="row align-center">
+
+        <p>{{aboutData[0].playbook_description}}</p>
+        <div class="main-buttons accent-color"><a :href="aboutData[0].playbook_link" target="_blank">View the Playbook</a>
+      </div>
+
+    </section>
+    <section class="light-section more-info">
+    <div class="row align-center">
+
+      <p>{{aboutData[0].participate_description}}</p>
+
+      <div class="main-buttons accent-color"><a href='participate.html' class='button'>Participate</a>
+    </div>
+  </div>
+  </section> -->
+
+  </div>
+  <footer class='footer-alt'>
+    <div class="row align-center">
+      <div class="medium-6 medium-centered columns">
+        <h4>IN COLLABORATION WITH</h4>
+      </div>
+
+    </div>
+    <div class="row">
+      <!-- <div class="column">
+          <a class="footer_partner-logo" href="http://www.iadb.org/" target="_blank"><img
+              src="images/partners/idb-white.gif" alt="Inter-American Development Bank"></a>
+      </div> -->
+      <div class="column">
+          <a class="footer_partner-logo" href="http://www.thegovlab.org" target="_blank"><img
+              src="images/the-govlab-logo-white.png" alt="The GovLab"></a>
+        </div>
+    </div>
+  </footer>
+  <div class="copyright">
+    <div class="row">
+      <div class="column">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          <img class="copyright_cc-badge"
+            alt="Creative Commons License" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+        <p>&nbspThis work is licensed under a</p>&nbsp<a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License.</a>.
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
+<script>
+  /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+  function dismiss_menu() {
+    var x = document.getElementById("myLinks");
+    x.style.display = "none";
+  }
+</script>
+<script src="js/fadein.js"></script>
+<script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+<script src="https://unpkg.com/vue-meta/dist/vue-meta.min.js"></script>
+<script src="js/experiential-learning.js"></script>
+
+</html>
