@@ -64,7 +64,7 @@ new Vue({
   },
   methods: {
     searchItems() {
-      window.location.href = "#"+ 'filter-div';
+      
       squery = document.getElementById('search-text').value;
       let searchData = self.expertData.filter(items => (items.first_name.toLowerCase().includes(squery.toLowerCase()) || items.last_name.toLowerCase().includes(squery.toLowerCase()) ||items.affiliation.toLowerCase().includes(squery.toLowerCase())));
       self.filterData = searchData;
@@ -73,13 +73,13 @@ new Vue({
     ResetItems() {
       self.filterData = self.expertData;
       this.updateNumbers(self.filterData);
-      window.location.href = "#"+ 'filter-div';
+     
       document.getElementById('search-text').value = " ";
       document.getElementById("form-1").selectedIndex = 0;
       document.getElementById("form-2").selectedIndex = 0;
     },
     changeFilter(event) {
-      window.location.href = "#"+ 'filter-div';
+     
       // document.getElementById("filter-count").style.display = "block";
       var element = document.body.querySelectorAll("select");
       this.selectedTopic = element[0].value;
@@ -109,7 +109,7 @@ new Vue({
       this.updateNumbers(self.filterData);
     },
     updateNumbers(filterData){
-      window.location.href = "#"+ 'filter-div';
+     
       self=this;
       self.euData = filterData.filter(items => items.region == "eu");
       self.eu_count = self.euData.length;
