@@ -93,7 +93,35 @@
         </div>
       </div>
     </div>
+    <div id="filter-div" class="filters">
+      <div class="form-control">
+        <select id="form-1" @change="changeFilter($event)">
+          <option class="material-icons" value="" selected disabled>Topic</option>
+          <option v-for="topic in js_topic" :value="topic.code" :key="topic.code">{{ topic.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <select id="form-2" @change="changeFilter($event)">
+          <option value="" selected disabled>Region</option>
+          <option v-for="region in js_region" :value="region.code" :key="region.code">{{ region.name }}
+          </option>
+        </select>
+
+      </div>
+    </div>
+
+    <div class="search">
+      <input name="search-bar" type="text" id="search-text" placeholder="Search" />
+      <input name="buttonExecute" @click="searchItems()" type="button" value="Search" />
+      <input name="buttonExecute" @click="ResetItems()" type="button" value="Reset" />
+    </div>
+
     <div class="table expert-map-page">
+      <div class="no-project" v-if="!filterData.length" v-cloak>
+        Sorry no experts found for the filter criteria you selected!
+      </div>
       <div class="table-header">
         <div class="row-equal-4">
           <h2>Name</h2>
@@ -109,7 +137,7 @@
           <h2>Region</h2>
         </div>
       </div>
-      <div v-for="expert in expertData" class="table-row">
+      <div v-for="expert in filterData" class="table-row">
         <div class="row-equal-4">
           {{expert.first_name}}&nbsp{{expert.last_name}}
         </div>

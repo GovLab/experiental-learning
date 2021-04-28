@@ -33,20 +33,98 @@ new Vue({
       aboutData: [],
       TeamData: [],
       expertData: [],
+      filterData: [],
       na_count: 0,
       sa_count: 0,
       af_count: 0,
+      js_topic: [
+        { code: '', name: 'All' },
+        { code: 'innovations-in-higher-ed', name: 'Innovations in Higher Eduction' },
+        { code: 'equity-and-experiential-learning', name: 'Equity and Experiential Learning' },
+      ],
+      js_region: [
+        { code: '', name: 'All' },
+        { code: 'na', name: 'North America' },
+        { code: 'sa', name: 'South America' },
+        { code: 'afr', name: 'Africa' },
+        { code: 'oca', name: 'Oceania' },
+        { code: 'as', name: 'Asia' },
+        { code: 'eu', name: 'Europe' },
+      ],
       apiURL: 'https://directus.thegovlab.com/experiential-learning',
     }
   },
 
   created: function created() {
     this.fetchTopic();
+    this.updateNumbers(this.expertData);
     this.fetchAbout();
     this.fetchTeamData();
     this.fetchMapExperts();
   },
   methods: {
+    searchItems() {
+      window.location.href = "#"+ 'filter-div';
+      squery = document.getElementById('search-text').value;
+      let searchData = self.expertData.filter(items => (items.first_name.toLowerCase().includes(squery.toLowerCase()) || items.last_name.toLowerCase().includes(squery.toLowerCase()) ||items.affiliation.toLowerCase().includes(squery.toLowerCase())));
+      self.filterData = searchData;
+      this.updateNumbers(self.filterData);
+    },
+    ResetItems() {
+      self.filterData = self.expertData;
+      this.updateNumbers(self.filterData);
+      window.location.href = "#"+ 'filter-div';
+      document.getElementById('search-text').value = " ";
+      document.getElementById("form-1").selectedIndex = 0;
+      document.getElementById("form-2").selectedIndex = 0;
+    },
+    changeFilter(event) {
+      window.location.href = "#"+ 'filter-div';
+      // document.getElementById("filter-count").style.display = "block";
+      var element = document.body.querySelectorAll("select");
+      this.selectedTopic = element[0].value;
+      this.selectedRegion = element[1].value;
+    
+      console.log(this.selectedTimeline);
+      //Topic Area Filter
+      if (this.selectedTopic == '')
+      self.filtered_topic = self.expertData;
+        
+      else {
+        let filtered_by_topic = self.expertData.filter(function (e) {
+          return e.experiential_learning_topics.some(are_element => are_element == self.selectedTopic);
+        });
+        self.filtered_topic = filtered_by_topic;
+      }
+      //Scope Filter
+      if (this.selectedRegion == '')
+      self.filtered_region = self.filtered_topic;
+      else {
+        let filtered_by_region = self.filtered_topic.filter(function (e) {
+          return e.region == self.selectedRegion;
+        });
+        self.filtered_region = filtered_by_region;
+      }
+      self.filterData = self.filtered_region;
+      this.updateNumbers(self.filterData);
+    },
+    updateNumbers(filterData){
+      window.location.href = "#"+ 'filter-div';
+      self=this;
+      self.euData = filterData.filter(items => items.region == "eu");
+      self.eu_count = self.euData.length;
+      self.saData = filterData.filter(items => items.region == "sa");
+      self.sa_count = self.saData.length;
+      self.naData = filterData.filter(items => items.region == "na");
+      self.na_count = self.naData.length;
+      self.afData = filterData.filter(items => items.region == "afr");
+      self.af_count = self.afData.length;
+      self.asData = filterData.filter(items => items.region == "as");
+      self.as_count = self.asData.length;
+      self.ocaData = filterData.filter(items => items.region == "oca");
+      self.oca_count = self.ocaData.length;
+      this.fetchMap(self.eu_count,self.sa_count,self.na_count,self.af_count,self.as_count,self.oca_count);
+    },
     fetchMapExperts(){
       self = this;
       const client = new DirectusSDK({
@@ -64,19 +142,8 @@ new Vue({
       ).then(data => {
         console.log(data)
         self.expertData = data.data;
-        self.euData = self.expertData.filter(items => items.region == "eu");
-        self.eu_count = self.euData.length;
-        self.saData = self.expertData.filter(items => items.region == "sa");
-        self.sa_count = self.saData.length;
-        self.naData = self.expertData.filter(items => items.region == "na");
-        self.na_count = self.naData.length;
-        self.afData = self.expertData.filter(items => items.region == "afr");
-        self.af_count = self.afData.length;
-        self.asData = self.expertData.filter(items => items.region == "as");
-        self.as_count = self.asData.length;
-        self.ocaData = self.expertData.filter(items => items.region == "oca");
-        self.oca_count = self.ocaData.length;
-        this.fetchMap(self.eu_count,self.sa_count,self.na_count,self.af_count,self.as_count,self.oca_count);
+        self.filterData = self.expertData;
+        this.updateNumbers(self.filterData);
       })
         .catch(error => console.error(error));
     },
