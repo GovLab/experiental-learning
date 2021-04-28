@@ -58,6 +58,7 @@ new Vue({
       client.getItems(
         'experts',
         {
+          sort: 'last_name',
           fields: ['*.*']
         }
       ).then(data => {
