@@ -1,8 +1,10 @@
 :root {
   --main-color: #2c4758;
+  --main-color-dark: #273f4e;
   --accent-color: #FFAA00;
   --accent-color-hover: #cc8a06;
   --theme-color: #760aa3;
+  --theme-color-bright: #b22eeb;
   --grey30: rgba(0, 0, 0, 0.03);
   --grey8: rgba(0, 0, 0, 0.8);
   --grey5: rgba(0, 0, 0, 0.5);
@@ -444,6 +446,40 @@ background-color: var(--main-color);
 background-size: cover;
 background-position: center top;
 }
+.expert-map{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color:#2c4758;
+}
+#chartdiv {
+  width: 50%;
+  height: 500px;
+  max-width:50%;
+  background-color:#2c4758;
+  padding-bottom: 2rem;
+}
+.expert-countries{
+  display:flex;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+p.expert-number{
+  color: var(--theme-color-bright);
+  font-size: 1.8rem;
+  margin:0;
+}
+p.expert-location{
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom:2rem;
+  margin-top:0;
+}
 @media screen and (min-width: 320px) and (max-width: 768px){
   .topic-row{
     display: flex;
@@ -819,6 +855,163 @@ color: #ffffff;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px){
+  .team-container{
+    display:flex;
+    flex-direction: column;
+    padding: 2rem 2rem;
+  }
+  .org-col{
+    width:100%;
+    text-align: left;
+  
+  }
+  .team-col{
+    width: 100%;
+  }
+}
+.table-title h2{
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+.table-body{
+  display: flex;
+  flex-direction: column;
+  width:40%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.table-body.title{
+width:20%;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+.table-row{
+  display:flex;
+  flex-direction: row;
+  height: 130px;
+  padding: 0rem 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.expert-map-page .table-row{
+  height:100%;
+}
+a.table-row{
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+.table-header{
+  display:flex;
+  flex-direction: row;
+  height: 50px;
+  padding: 0rem 2rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  color: #ffffff;
+  text-align:center;
+}
+.expert-map-page .table-header{
+  background-color: var(--main-color-dark);
+  justify-content: left;
+  text-align: left;
+ 
+}
+.table-header h2{
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.table-row:nth-of-type(odd){
+  background-color: var(--grey05);
+}
+.table-row:nth-of-type(even){
+  background-color: white;
+}
+.table-row:hover{
+  background-color: var(--grey1);
+  cursor: pointer;
+}
+.row-description-content{
+  width: 60%;
+  padding: 1rem;
+}
+.row-equal-4{
+  width: 25%;
+  padding: 1rem;
+}
+.row-topic-content{
+  width: 15%;
+  padding: 1rem;
+}
+.strat_topic_item{
+  text-align: center;
+}
+.strat_rec_item{
+  text-align: center;
+}
+.row-reccomendation-content{
+  width: 25%;
+  padding: 1rem;
+}
+/* .table a:hover .tag-item{
+  background-color: var(--main-color);
+  color: white;
+  padding: 0.2rem;
+  transition: all .6s ease;
+  } */
+  .table .tag-item{
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  }
+@media screen and (min-width: 320px) and (max-width: 768px){
+  .legend{
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .product-table-header{
+    display: none;
+  }
+  .product-table-contents{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .table-body{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+justify-content: flex-start;
+align-items: center;
+  }
+  .table-body.title{
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    }
+  .table-row{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0rem 2rem;
+  }
+  .row-description-content{
+    width: 100%;
+    padding: 1rem;
+  }
+  .row-topic-content{
+    width: 100%;
+    padding: 1rem;
+  }
+  .row-reccomendation-content{
+    width: 100%;
+    padding: 1rem;
+  }
   .team-container{
     display:flex;
     flex-direction: column;
