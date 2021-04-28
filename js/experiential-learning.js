@@ -254,7 +254,7 @@ new Vue({
 
       // Configure series
       var polygonTemplate = polygonSeries.mapPolygons.template;
-      polygonTemplate.fill = am4core.color("#f8f8f810");
+      polygonTemplate.fill = am4core.color("#f8f8f830");
       polygonTemplate.stroke = am4core.color("#2c4758");
 
 
