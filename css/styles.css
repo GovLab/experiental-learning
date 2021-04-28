@@ -975,6 +975,11 @@ a.table-row{
     padding: 0 1rem;
     text-align: center;
   }
+  .row-equal-4{
+    width: 100%;
+    text-align: center;
+    padding: 0.25rem;
+  }
   .product-table-header{
     display: none;
   }
